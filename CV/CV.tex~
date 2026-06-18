@@ -1,0 +1,145 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+
+%%%%%%%%%%%%
+% PACKAGES %
+%%%%%%%%%%%%
+% Layout
+\usepackage{geometry} % Margins
+\usepackage{multicol} % Side by side
+\usepackage{mwe}      % Minipages
+
+% Graphics
+\usepackage{xcolor}    % Colors
+\usepackage{fontspec}  % Custom fonts
+\usepackage{graphicx}  % Images
+\usepackage{wrapfig}   % Wrapping images
+\usepackage{tcolorbox} % Colored box indicators
+\usepackage{tikz}      % Progress bars
+
+%%%%%%%%%%%%%%%%%%%%%
+% MACROS & COMMANDS %
+%%%%%%%%%%%%%%%%%%%%%
+% Vertical separator
+\newcommand{\vsep}{
+  \vspace{.4cm}
+  {\color{myGray}\hrule}
+  \vspace{.4cm}
+}
+
+\newcommand{\skillbar}[3][\textwidth]{
+  \def\skilldimen{#3\textwidth}
+  \begin{tikzpicture}
+    \fill[fill=myGray] (0,0) -- (\textwidth, 0) -- (\textwidth, .5cm) -- (0, .5cm);
+    \fill[fill=#2] (0,0) -- (\skilldimen, 0) -- (\skilldimen, .5cm) -- (0, .5cm);
+  \end{tikzpicture}
+}
+
+%%%%%%%%%
+% SETUP %
+%%%%%%%%%
+% Remove page numbers
+\thispagestyle{empty}
+
+% Fonts
+
+% Geometry
+\geometry{a4paper, left=18.5mm, right=18.5mm, top=18.5mm, bottom=18.5mm}
+
+% Grapghics
+\graphicspath{{./Images}}
+
+% Color Shortcuts
+\definecolor{myLightGray}{HTML}{f1f1f1}%
+\definecolor{myGray}{HTML}{cccccc}%
+\definecolor{myAqua}{HTML}{5c9fb3}%
+\definecolor{myTurq}{HTML}{4399bc}%
+%\definecolor{}{HTML}{}%
+%\definecolor{}{HTML}{}%
+%\definecolor{}{HTML}{}%
+%\definecolor{}{HTML}{}%
+%\definecolor{}{HTML}{}%
+%\definecolor{}{HTML}{}%
+%\definecolor{}{HTML}{}%
+
+% Colorboxes
+\newtcbox{\indicator}{
+size=fbox, on line, arc=0pt,boxrule=0pt,
+colback=myTurq,
+coltext=white
+}
+
+
+
+%%%%%%%%%%%%
+% DOCUMENT %
+%%%%%%%%%%%%
+\begin{document}
+
+%%% Set background color
+\pagecolor{myLightGray}
+
+%%% Presentation
+\noindent
+\colorbox{myAqua}{
+\begin{minipage}{\textwidth}
+  \noindent
+  \begin{tabular}{ll}
+    \begin{minipage}{3.5cm}
+      \includegraphics[width=3.5cm]{./Photo.jpg}
+    \end{minipage}
+    &
+    \begin{minipage}{\dimexpr\textwidth - 4cm\relax}
+      \textcolor{white}{Bastien Santé}\\
+      \textcolor{white}{Développeur de jeux vidéo}
+    \end{minipage}
+  \end{tabular}
+\end{minipage}
+}
+
+\vsep
+
+%%% Description
+\indicator{\textbf{PROFIL}} \textemdash\ Je suis un jeune développeur, passionné par les RPG et intéressé par l'architecture logicielle, qui a à c{\oe}ur d'implémenter des systèmes efficaces, simples d'emploi et flexibles pour les jeux vidéo. J'ai un intéret particulier pour les interfaces utilisateur et la typographie, que je pratique en tant qu'amateur.
+
+\vsep
+
+\noindent
+\begin{tabular}{cc}
+  %
+  %%% Competence
+  \begin{minipage}{0.45\textwidth}
+    \subsection*{Compétences}
+      Développement en C\#\\
+      \skillbar{yellow}{0.8}
+
+      Développement en C++\\
+      \skillbar{yellow}{0.7}
+      
+      Gestion de projet avec Git et Perforce\\
+      \skillbar{orange}{0.7}
+
+      Design UI/UX\\
+      \skillbar{blue}{.8}
+
+      Gestion de systèmes UNIX\\
+      \skillbar{blue}{.8}\\
+
+      \textbf{Ouverture d'esprit} \textemdash\ J'accepte facilement le changement et la nouveauté dans l'organisation\\
+
+      \textbf{Analyse} \textemdash\ Je préfère prendre plusieurs approches à un problème\\
+
+      \textbf{Apprentissage} \textemdash\ J'aime me former également en dehors du travail, tout en assurant une veille technique\\
+      
+  \end{minipage}
+  &
+  %
+  %%% Education
+  \begin{minipage}{0.45\textwidth}
+    \begin{center}Formation\end{center}
+      
+  \end{minipage}
+\end{tabular}
+
+
+\end{document}
